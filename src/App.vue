@@ -64,7 +64,8 @@ h1{
   margin-bottom: 40px;
 }
 body{
-  background-color: #7D6AA6;
+  /* background-color: #7D6AA6; */
+  background-color: #A988F2;
 }
 #app {
 
@@ -92,6 +93,10 @@ body{
   width: 300px;
 }
 .botao{
-  color: #BFBFBF;
+  color: #ffffffef;
+}
+.botao:hover{
+  color: white;
+  transition: all 0.3s;
 }
 </style>
