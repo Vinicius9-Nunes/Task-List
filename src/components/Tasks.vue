@@ -83,7 +83,10 @@ ul {
 }
 .card:hover{
   opacity: 1;
-  transition: 1s;
+  -moz-transform: scale(1.05);
+	-webkit-transform: scale(1.05);
+	transform: scale(1.05);
+  transition: all 0.5s;
 }
 
 .container {
