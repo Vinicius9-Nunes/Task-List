@@ -1,0 +1,105 @@
+<template>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4" v-for="task in tasks" :key="task.id">
+        <div
+          class="card text-white bg-dark mb-3 border border-white"
+          style="width: 18rem">
+          <div class="card-body">
+            <p>
+              <label :class="{ tachado: task.isCompleted }"
+                >Id: {{ task.id }}</label
+              >
+            </p>
+            <p>
+              <label :class="{ tachado: task.isCompleted }"
+                >Tarefa: {{ task.task }}</label
+              >
+            </p>
+            <label :class="{ tachado: task.isCompleted }">
+              Finalizada:
+              <input
+                :checked="task.isCompleted"
+                type="checkbox"
+                @click="tachado(task.id)"
+              />
+            </label>
+            <p>
+              <button
+                v-on:click="removeTask(task.id)"
+                class="
+                  btn btn-secondary btn-sm
+                  border border-white
+                  botao_apagar
+                "
+              >
+                Apagar
+              </button>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "ListaTarefas",
+  props: {
+    tasks: [],
+  },
+  data() {
+    return {
+      tasksArray: []
+    };
+  },
+  methods: {
+    tachado(taskId) {
+      for (const task of this.tasks) {
+        if (task.id === taskId) {
+          task.isCompleted = !task.isCompleted;
+        }
+      }
+    },
+
+    removeTask(taskId) {
+      this.$emit('clicked', taskId)
+    },
+  },
+};
+</script>
+
+<style scoped>
+
+ul {
+  list-style: none;
+}
+.card {
+  margin-bottom: 0.5em;
+  border-radius: 10px;
+  font-weight: 600;
+  opacity: 0.9;
+}
+.card:hover{
+  opacity: 1;
+  transition: 1s;
+}
+
+.container {
+  color: #BFBFBF;
+  padding: 5em;
+  padding-top: 1em;
+  border-radius: 10px;
+}
+.tachado {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+.naotachado {
+  text-decoration: none;
+}
+.botao_apagar {
+  margin-top: 5px;
+}
+</style>
