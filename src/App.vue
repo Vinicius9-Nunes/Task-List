@@ -50,8 +50,12 @@ export default {
       }
     },
     GetLastId() {
-      let task = this.tasks[this.tasks.length - 1];
-      return task.id + 1;
+      if(this.tasks.length > 0){
+        let task = this.tasks[this.tasks.length - 1];
+        return task.id + 1;
+      }
+      else
+        return 1
     },
   },
 };
