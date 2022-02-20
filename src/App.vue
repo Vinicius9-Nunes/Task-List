@@ -2,7 +2,7 @@
   <div class="container">
     <div class="form">
       <h1>{{ title }}</h1>
-      <input type="text" v-model="item" class="input"/>
+      <input type="text" v-model.trim="item" v-on:keyup.enter="AddTask" class="input"/>
       <button @click="AddTask" class="btn btn-outline-dark border border-white botao">Adicionar</button>
     </div>
     <div class="task">
