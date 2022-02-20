@@ -1,7 +1,8 @@
 <template>
   <div class="container">
     <div class="row">
-      <div class="col-sm-4" v-for="task in tasks" :key="task.id">
+      <!-- //col-sm-4 .d-print-flex -->
+      <div class="col-auto" v-for="task in tasks" :key="task.id">
         <div
           class="card text-white bg-dark mb-3 border border-white"
           style="width: 18rem">
@@ -94,6 +95,8 @@ ul {
   padding: 5em;
   padding-top: 1em;
   border-radius: 10px;
+  display: flex;
+  justify-content: center;
 }
 .tachado {
   text-decoration: line-through;

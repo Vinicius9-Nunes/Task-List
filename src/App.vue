@@ -77,12 +77,19 @@ body{
   text-align: center;
   color: white;
   padding-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+.container{
+  display: flexbox;
+  justify-content: center;
 }
 .form {
   margin-bottom: 3em;
 }
 .input{
   margin-right: 0.2em;
+  margin-bottom: 0.5em;
   border-radius: 5px;
   padding: 4px;
   width: 300px;
