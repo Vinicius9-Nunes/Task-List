@@ -33,6 +33,7 @@
                   border border-white
                   botao_apagar
                 "
+                data-bs-toggle="modal" data-bs-target="#exampleModal"
               >
                 Apagar
               </button>

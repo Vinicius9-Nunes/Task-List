@@ -6,6 +6,8 @@
       <button @click="AddTask" class="btn btn-outline-dark border border-white botao">Adicionar</button>
     </div>
     <Tasks :tasks="tasks" @clicked="removeTaskChild"></Tasks>
+    
+  
   </div>
 </template>
 
@@ -27,10 +29,22 @@ export default {
       ],
     };
   },
+  mounted(){
+    this.tasks = this.tasks.sort((a, b)=>{
+      if (a.id < b.id) {
+        return 1;
+      }
+      if (a.id > b.id) {
+        return -1;
+      }
+      // a must be equal to b
+      return 0;
+    })
+  },
   methods: {
     AddTask() {
-      console.log(this.item);
-      this.tasks.push({
+      if(this.item == null || this.item === '') return
+      this.tasks.unshift({
         id: this.GetLastId(),
         task: this.item,
         isCompleted: false,
@@ -48,7 +62,7 @@ export default {
     },
     GetLastId() {
       if(this.tasks.length > 0){
-        let task = this.tasks[this.tasks.length - 1];
+        let task = this.tasks[0];
         return task.id + 1;
       }
       else
@@ -59,6 +73,7 @@ export default {
 </script>
 
 <style>
+
 h1{
   font-weight: 700;
   margin-bottom: 40px;
